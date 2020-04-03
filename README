@@ -1,0 +1,108 @@
+=====================================================================
+Petcu Monica-Alexandra
+323CA
+=====================================================================
+
+      In functia Main am retinut in:
+
+       - n - numarul total de forme ce vor fi reprezentate in imaginea finala
+       - forma - forma ce va fi reprezentata (canvas, linie, patrat, dreptunghi,
+         cerc, triunghi, romb sau poligon)
+       - h - in aceasta variabila am retinut inaltimea canvas-ului
+       - lungime - in aceasta variabila am retinut lungimea canvas-ului
+       - interior - stochez culoarea canvasului
+       - alphaint - stochez valoarea de opacitate
+
+      Dupa ce obtin culoarea canvasului si valoarea de opacitate, separ culorile
+   rosu, verde si albastru si le retin folosindu-ma de o clasa pe care am numit-o
+   Culori. Colorez canvasul si il retin in image pe care il actualizez la fiecare 
+   introducere a unei noi forme. Citesc, apoi, pe rand restul formelor, verific 
+   ce tip de forma este si ii retin caracteristicile.
+      Pentru fiecare forma am creat o clasa in care ii retinem caracteristicile.
+   Fiecare din ele are o metoda prin care deseneaza forma folosindu-se de 
+   Pattern-ul Visitor. Toate aceste clase implementeaza interfata Shape si ma
+   folosesc de clasa ShapeFactory pentru a genera noi forme atunci cand le
+   primesc la citire.
+
+       Forme si caracteristici:
+
+     > Linie
+         - xs - retin coordonata x de inceput
+         - ys - retin coordonata y de inceput
+         - xf - retin coordonata x de inceput
+         - yf - retin coordonata y de inceput
+         - interior - stochez culoarea liniei
+         - alphaint - stochez valoarea de opacitate a liniei
+         - rgb - obtin culoarea finala a liniei cu tot cu opacitate
+         - transmit toate aceste date clasei Line pentru a putea desena linia
+
+     > Patrat
+         - xs - retin coordonata x de inceput
+         - ys - retin coordonata y de inceput
+         - lungime - retin lungimea unei laturi
+         - contur - stochez culoarea conturului patratului
+         - alphacont - stochez valoarea de opacitate a conturului
+         - interior - stochez culoarea din interiorul patratului
+         - alphaint - stochez valoarea de opacitate a interiorului
+         - rgbConturS - obtin culoarea finala a conturului patratului cu tot cu opacitate
+         - rgbFillS - obtin culoarea finala a interiorului patratului cu tot cu opacitate
+         - transmit toate aceste date clasei Square pentru a putea desena patratul
+
+     > Dreptunghi
+         - xs - retin coordonata x de inceput
+         - ys - retin coordonata y de inceput
+         - h - retin inaltimea dreptunghiului
+         - lungime - retin lungimea dreptunghiului
+         - contur - stochez culoarea conturului dreptunghiului
+         - alphacont - stochez valoarea de opacitate a conturului
+         - interior - stochez culoarea din interiorul dreptunghiului
+         - alphaint - stochez valoarea de opacitate a interiorului
+         - rgbConturR - obtin culoarea finala a conturului dreptunghiului cu tot cu opacitate
+         - rgbFillR - obtin culoarea finala a interiorului dreptunghiului cu tot cu opacitate
+         - transmit toate aceste date clasei Rectangle pentru a putea desena dreptunghiul
+
+     > Cerc
+         - xs - retin coordonata x a centrului cercului
+         - ys - retin coordonata y a centrului cercului
+         - raza - retin raza cercului
+         - contur - stochez culoarea conturului cercului
+         - alphacont - stochez valoarea de opacitate a conturului
+         - interior - stochez culoarea din interiorul cercului
+         - alphaint - stochez valoarea de opacitate a interiorului
+         - rgbConturC - obtin culoarea finala a conturului cercului cu tot cu opacitate
+         - rgbFillC - obtin culoarea finala a interiorului cercului cu tot cu opacitate
+         - transmit toate aceste date clasei Circle pentru a putea desena cercul
+
+     > Triunghi
+         - t - vector de puncte in care retin coordonatele x si y ale celor 3 puncte
+           ale triunghiului
+         - contur - stochez culoarea conturului triunghiului
+         - alphacont - stochez valoarea de opacitate a conturului
+         - interior - stochez culoarea din interiorul triunghiului
+         - alphaint - stochez valoarea de opacitate a interiorului
+         - rgbConturT - obtin culoarea finala a conturului triunghiului cu tot cu opacitate
+         - rgbFillT - obtin culoarea finala a interiorului triunghiului cu tot cu opacitate
+         - transmit toate aceste date clasei Triangle pentru a putea desena triunghiul
+
+     > Romb
+         - x - retin coordonata x a centrului rombului
+         - y - retin coordonata y a centrului rombului
+         - oriz - retin dimensiunea diagonalei orizontale a rombului
+         - vert - retin dimensiunea diagonalei verticale a rombului
+         - contur - stochez culoarea conturului rombului
+         - alphacont - stochez valoarea de opacitate a conturului
+         - interior - stochez culoarea din interiorul rombului
+         - alphaint - stochez valoarea de opacitate a interiorului
+         - rgbConturD - obtin culoarea finala a conturului rombului cu tot cu opacitate
+         - rgbFillD - obtin culoarea finala a interiorului rombului cu tot cu opacitate
+         - transmit toate aceste date clasei Diamond pentru a putea desena rombul
+
+     > Poligon
+         - p - vector de puncte in care retin coordonatele x si y ale varfurilor poligonului
+         - contur - stochez culoarea conturului poligonului
+         - alphacont - stochez valoarea de opacitate a conturului
+         - interior - stochez culoarea din interiorul poligonului
+         - alphaint - stochez valoarea de opacitate a interiorului
+         - rgbConturT - obtin culoarea finala a conturului poligonului cu tot cu opacitate
+         - rgbFillT - obtin culoarea finala a interiorului poligonului cu tot cu opacitate
+         - transmit toate aceste date clasei Polygon pentru a putea desena poligonul
